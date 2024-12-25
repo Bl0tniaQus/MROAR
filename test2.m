@@ -1,4 +1,4 @@
-train_dirs = ["images/dzien_jesien"];
+train_dirs = ["images/dzien_wiosna", "images/noc_wiosna"];
 train_imds = imageDatastore(train_dirs, IncludeSubfolders=true, LabelSource="foldernames");
 
 
