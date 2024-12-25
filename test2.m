@@ -3,7 +3,7 @@ train_imds = imageDatastore(train_dirs, IncludeSubfolders=true, LabelSource="fol
 
 
 
-bag = bagOfFeatures(train_imds, PointSelection="Detector");
+bag = bagOfFeatures(train_imds, PointSelection="Grid", gridStep=[32 32]);
 classifier = trainImageCategoryClassifier(train_imds, bag);
 imagePath = "./test_images/test_img10.png";
 image = imread(imagePath);

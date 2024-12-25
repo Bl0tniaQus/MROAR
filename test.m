@@ -3,7 +3,7 @@ test_dirs = ["images/noc_jesien", "images/noc_zima", "images/dzien_jesien", "ima
 train_imds = imageDatastore(train_dirs, IncludeSubfolders=true, LabelSource="foldernames");
 test_imds = imageDatastore(test_dirs, IncludeSubfolders=true, LabelSource="foldernames");
 
-bag = bagOfFeatures(train_imds, PointSelection="Detector");
+bag = bagOfFeatures(train_imds, PointSelection="Grid", gridStep=[32 32]);
 classifier = trainImageCategoryClassifier(train_imds, bag);
 predicted = predict(classifier, test_imds)
 true_labels = grp2idx(test_imds.Labels)
